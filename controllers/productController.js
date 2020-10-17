@@ -1,6 +1,8 @@
 const Product = require('../models/productModel')
 const { getPostData } = require('../utils/data')
 
+// @desc  Gets All Products
+// @route GET /api/products
 async function getProducts(_, res) {
   try {
     const products = await Product.findAll()
@@ -12,6 +14,8 @@ async function getProducts(_, res) {
   }
 }
 
+// @desc  Gets Single Product
+// @route GET /api/product/:id
 async function getProduct(req, res, id) {
   try {
     const product = await Product.findById(id)
@@ -28,6 +32,8 @@ async function getProduct(req, res, id) {
   }
 }
 
+// @desc  Create a Product
+// @route POST /api/products
 async function createProduct(req, res) {
   try {
     const body = await getPostData(req)
@@ -49,6 +55,8 @@ async function createProduct(req, res) {
   }
 }
 
+// @desc  Update a Product
+// @route PUT /api/products/:id
 async function updateProduct(req, res, id) {
   try {
     const product = await Product.findById(id)
@@ -77,6 +85,8 @@ async function updateProduct(req, res, id) {
   }
 }
 
+// @desc  Delete Product
+// @route DELETE /api/product/:id
 async function deleteProduct(req, res, id) {
   try {
     const product = await Product.findById(id)
